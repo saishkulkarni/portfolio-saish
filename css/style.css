@@ -15,6 +15,13 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 body {
@@ -34,12 +41,17 @@ body {
     background: linear-gradient(135deg, #2b5876, #4e4376);
     padding: 1.2rem 3rem;
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
+    max-width: 100%;
 }
 
 .logo {
@@ -51,6 +63,21 @@ body {
     background: linear-gradient(to right, #ffffff, #e0e0e0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.hero {
+    min-height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    padding-top: 70px;
+    margin-top: 0;
+    background: linear-gradient(135deg, #0984e3, #00b894);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
 }
 
 .nav-links {
@@ -408,9 +435,13 @@ body {
         display: block;
     }
 
+    .navbar {
+        padding: 1rem 1.5rem;  /* Reduce padding on mobile */
+    }
+
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 60px;  /* Adjust this value to match your navbar height */
         left: 0;
         width: 100%;
         background: linear-gradient(135deg, #2b5876, #4e4376); /* Match navbar gradient */
@@ -462,24 +493,66 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
     }
+      .about-image {
+          margin: 0 auto;
+      }
 
-    .about-image {
-        margin: 0 auto;
-    }
+      .contact-info {
+          flex-direction: column;
+          gap: 2rem;
+      }
 
-    .contact-info {
-        flex-direction: column;
-        gap: 2rem;
-    }
-}
-/* Modern Social Links Styling */
-.social-links-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-}
+      body {
+          padding-top: 60px;  /* Add this to prevent content from hiding under navbar */
+      }
+  }
 
+  .hero {
+      min-height: 100vh;
+      padding-top: 100px; /* Increased padding to account for navbar */
+      margin-top: 0;
+      background: linear-gradient(135deg, #0984e3, #00b894);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+  }
+
+  .navbar {
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      padding: 1.2rem 3rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px; /* Set a fixed height */
+  }
+
+  @media (max-width: 768px) {
+      .hero {
+          padding-top: 80px;
+      }
+    
+      .navbar {
+          height: 70px;
+          padding: 1rem 1.5rem;
+      }
+  }
+
+  /* Modern Social Links Styling */
+  .social-links-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+  }
 .social-link {
     width: 50px;
     height: 50px;
